@@ -8,5 +8,5 @@ Video: [Bilibili](https://www.bilibili.com/video/BV1pqkyYyEnp/?spm_id_from=333.1
 
 ## Schedule
 - [X] Release the dataset and pretrained models (March 1st) [[code]](https://github.com/LQTS/Pretraining_for_M2VTP)
-- [] Release the MuJoCo Environment (March 7th)
-- [] Release the policy training scripts and policy models (March 10th)
+- [ ] Release the MuJoCo Environment (March 7th)
+- [ ] Release the policy training scripts and policy models (March 10th)
