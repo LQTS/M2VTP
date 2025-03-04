@@ -7,6 +7,6 @@ Paper: [IEEE](https://ieeexplore.ieee.org/document/10610933/) [ResearchGate](htt
 Video: [Bilibili](https://www.bilibili.com/video/BV1pqkyYyEnp/?spm_id_from=333.1387.homepage.video_card.click)
 
 ## Schedule
-- Release the dataset and pretrained models (March 1st)
-- Release the MuJoCo Environment (March 7th)
-- Release the policy training scripts and policy models (March 10th)
+- [X] Release the dataset and pretrained models (March 1st) [[code]](https://github.com/LQTS/Pretraining_for_M2VTP)
+- [] Release the MuJoCo Environment (March 7th)
+- [] Release the policy training scripts and policy models (March 10th)
