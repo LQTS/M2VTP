@@ -1,0 +1,166 @@
+<mujoco model="right_shadow_hand_assets">
+
+  <default>
+    <default class="right_hand">
+      <mesh scale="0.001 0.001 0.001"/>
+      <joint axis="1 0 0" damping="0.05" armature="0.0002" frictionloss="0.01"/>
+      <position forcerange="-1 1"/>
+
+      <default class="wrist">
+        <joint damping="0.5"/>
+        <default class="wrist_y">
+          <joint axis="0 1 0" range="-0.523599 0.174533"/>
+          <position kp="10" ctrlrange="-0.523599 0.174533" forcerange="-10 10"/>
+        </default>
+        <default class="wrist_x">
+          <joint range="-0.698132 0.488692"/>
+          <position kp="8" ctrlrange="-0.698132 0.488692" forcerange="-5 5"/>
+        </default>
+      </default>
+
+      <default class="thumb">
+        <default class="thbase">
+          <joint axis="0 0 -1" range="-1.0472 1.0472"/>
+          <position kp="0.4" ctrlrange="-1.0472 1.0472" forcerange="-3 3"/>
+        </default>
+        <default class="thproximal">
+          <joint range="0 1.22173"/>
+          <position ctrlrange="0 1.22173" forcerange="-2 2"/>
+        </default>
+        <default class="thhub">
+          <joint range="-0.20944 0.20944"/>
+          <position kp="0.5" ctrlrange="-0.20944 0.20944"/>
+        </default>
+        <default class="thmiddle">
+          <joint axis="0 -1 0" range="-0.698132 0.698132"/>
+          <position kp="1.5" ctrlrange="-0.698132 0.698132"/>
+        </default>
+        <default class="thdistal">
+          <joint range="-0.261799 1.5708"/>
+          <position ctrlrange="-0.261799 1.5708"/>
+        </default>
+      </default>
+
+      <default class="metacarpal">
+        <joint axis="0.573576 0 0.819152" range="0 0.785398"/>
+        <position ctrlrange="0 0.785398"/>
+      </default>
+      <default class="knuckle">
+        <joint axis="0 -1 0" range="-0.349066 0.349066"/>
+        <position ctrlrange="-0.349066 0.349066"/>
+      </default>
+      <default class="proximal">
+        <joint range="-0.261799 1.5708"/>
+        <position ctrlrange="-0.261799 1.5708"/>
+      </default>
+      <default class="middle_distal">
+        <joint range="0 1.5708"/>
+        <position kp="0.5" ctrlrange="0 3.1415"/>
+      </default>
+
+      <default class="plastic">
+        <geom solimp="0.5 0.99 0.0001" solref="0.005 1"/>
+        <default class="plastic_visual">
+          <geom type="mesh" material="black" contype="0" conaffinity="0" group="2"/>
+        </default>
+        <default class="plastic_collision">
+          <geom group="3"/>
+        </default>
+      </default>
+    </default>
+  </default>
+
+  <asset>
+    <material name="black" specular="0.5" shininess="0.25" rgba="0.16355 0.16355 0.16355 1"/>
+    <material name="gray" specular="0.0" shininess="0.25" rgba="0.80848 0.80848 0.80848 1"/>
+    <material name="metallic" specular="0" shininess="0.25" rgba="0.9 0.9 0.9 1"/>
+
+    <mesh class="right_hand" file="forearm_0.obj"/>
+    <mesh class="right_hand" file="forearm_1.obj"/>
+    <mesh class="right_hand" file="forearm_collision.obj"/>
+    <mesh class="right_hand" file="wrist.obj"/>
+    <mesh class="right_hand" file="palm.obj"/>
+    <mesh class="right_hand" file="f_knuckle.obj"/>
+    <mesh class="right_hand" file="f_proximal.obj"/>
+    <mesh class="right_hand" file="f_middle.obj"/>
+    <mesh class="right_hand" file="f_distal_pst.obj"/>
+    <mesh class="right_hand" file="lf_metacarpal.obj"/>
+    <mesh class="right_hand" file="th_proximal.obj"/>
+    <mesh class="right_hand" file="th_middle.obj"/>
+    <mesh class="right_hand" file="th_distal_pst.obj"/>
+  </asset>
+
+  <contact>
+    <exclude body1="rh_wrist" body2="rh_forearm"/>
+    <exclude body1="rh_thproximal" body2="rh_thmiddle"/>
+  </contact>
+
+  <tendon>
+    <fixed name="rh_FFJ0">
+      <joint joint="rh_FFJ2" coef="1"/>
+      <joint joint="rh_FFJ1" coef="1"/>
+    </fixed>
+    <fixed name="rh_MFJ0">
+      <joint joint="rh_MFJ2" coef="1"/>
+      <joint joint="rh_MFJ1" coef="1"/>
+    </fixed>
+    <fixed name="rh_RFJ0">
+      <joint joint="rh_RFJ2" coef="1"/>
+      <joint joint="rh_RFJ1" coef="1"/>
+    </fixed>
+    <fixed name="rh_LFJ0">
+      <joint joint="rh_LFJ2" coef="1"/>
+      <joint joint="rh_LFJ1" coef="1"/>
+    </fixed>
+  </tendon>
+
+  <actuator>
+    <position name="rh_A_WRJ2" joint="rh_WRJ2" class="wrist_y"/>
+    <position name="rh_A_WRJ1" joint="rh_WRJ1" class="wrist_x"/>
+    <position name="rh_A_THJ5" joint="rh_THJ5" class="thbase"/>
+    <position name="rh_A_THJ4" joint="rh_THJ4" class="thproximal"/>
+    <position name="rh_A_THJ3" joint="rh_THJ3" class="thhub"/>
+    <position name="rh_A_THJ2" joint="rh_THJ2" class="thmiddle"/>
+    <position name="rh_A_THJ1" joint="rh_THJ1" class="thdistal"/>
+    <position name="rh_A_FFJ4" joint="rh_FFJ4" class="knuckle"/>
+    <position name="rh_A_FFJ3" joint="rh_FFJ3" class="proximal"/>
+    <position name="rh_A_FFJ0" tendon="rh_FFJ0" class="middle_distal"/>
+    <position name="rh_A_MFJ4" joint="rh_MFJ4" class="knuckle"/>
+    <position name="rh_A_MFJ3" joint="rh_MFJ3" class="proximal"/>
+    <position name="rh_A_MFJ0" tendon="rh_MFJ0" class="middle_distal"/>
+    <position name="rh_A_RFJ4" joint="rh_RFJ4" class="knuckle"/>
+    <position name="rh_A_RFJ3" joint="rh_RFJ3" class="proximal"/>
+    <position name="rh_A_RFJ0" tendon="rh_RFJ0" class="middle_distal"/>
+    <position name="rh_A_LFJ5" joint="rh_LFJ5" class="metacarpal"/>
+    <position name="rh_A_LFJ4" joint="rh_LFJ4" class="knuckle"/>
+    <position name="rh_A_LFJ3" joint="rh_LFJ3" class="proximal"/>
+    <position name="rh_A_LFJ0" tendon="rh_LFJ0" class="middle_distal"/>
+  </actuator>
+  <sensor>
+
+    <touch name="f_lfdistal" site="fs_lfdistal" noise="0.001" cutoff="10"/>
+    <touch name="f_rfdistal" site="fs_rfdistal" noise="0.001" cutoff="10"/>
+    <touch name="f_mfdistal" site="fs_mfdistal" noise="0.001" cutoff="10"/>
+    <touch name="f_ffdistal" site="fs_ffdistal" noise="0.001" cutoff="10"/>
+    <touch name="f_thdistal" site="fs_thdistal" noise="0.001" cutoff="10"/>
+
+    <touch name="f_lfmiddle" site="fs_lfmiddle" noise="0.001" cutoff="10"/>
+    <touch name="f_rfmiddle" site="fs_rfmiddle" noise="0.001" cutoff="10"/>
+    <touch name="f_mfmiddle" site="fs_mfmiddle" noise="0.001" cutoff="10"/>
+    <touch name="f_ffmiddle" site="fs_ffmiddle" noise="0.001" cutoff="10"/>
+    <touch name="f_thmiddle" site="fs_thmiddle" noise="0.001" cutoff="10"/>
+
+    <touch name="f_lfproximal" site="fs_lfproximal" noise="0.001" cutoff="10"/>
+    <touch name="f_rfproximal" site="fs_rfproximal" noise="0.001" cutoff="10"/>
+    <touch name="f_mfproximal" site="fs_mfproximal" noise="0.001" cutoff="10"/>
+    <touch name="f_ffproximal" site="fs_ffproximal" noise="0.001" cutoff="10"/>
+    <touch name="f_thproximal" site="fs_thproximal" noise="0.001" cutoff="10"/>
+
+    <touch name="f_lfknuckle" site="fs_lfknuckle" noise="0.001" cutoff="10"/>
+    <touch name="f_rfknuckle" site="fs_rfknuckle" noise="0.001" cutoff="10"/>
+    <touch name="f_mfknuckle" site="fs_mfknuckle" noise="0.001" cutoff="10"/>
+    <touch name="f_ffknuckle" site="fs_ffknuckle" noise="0.001" cutoff="10"/>
+    <touch name="f_palm" site="fs_palm" noise="0.001" cutoff="10"/>
+
+  </sensor>
+</mujoco>

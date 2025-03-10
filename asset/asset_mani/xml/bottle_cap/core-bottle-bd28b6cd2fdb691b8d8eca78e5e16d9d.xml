@@ -1,0 +1,22 @@
+<mujoco model="bottle_cap_template">
+
+    <include file="./shared_xml/shared_assets.xml" />
+
+    <worldbody>
+        
+        <body name="shadow_hand" pos="-0.35 -0.03 0.25798960000000004" euler="3.1415 0 0">
+            <include file="./shared_xml/right_hand.xml" />
+        </body>
+        
+        <body name="bottle_cap" pos="0 0 0.0939948">
+            <joint axis="0 0 1" damping="0.05" limited="false" name="OBJRz" pos="0 0 0" />
+        <geom name="cap" mesh="core-bottle-bd28b6cd2fdb691b8d8eca78e5e16d9d-coacd_convex_piece_0" mass="0.01" pos="0 0 0" rgba="0.3 0.6 0.6 1" type="mesh" condim="6" priority="1" friction="0.5 0.01 0.003" /></body>
+        
+        <body name="bottle" pos="0 0 0.0939948">
+            <geom name="coacd_convex_piece_1" mesh="core-bottle-bd28b6cd2fdb691b8d8eca78e5e16d9d-coacd_convex_piece_1" mass="0.01" pos="0 0 0" rgba="0.6 0.2 0.2 1" type="mesh" contype="2" conaffinity="2" /></body>
+
+    </worldbody>
+
+
+
+<asset><mesh name="core-bottle-bd28b6cd2fdb691b8d8eca78e5e16d9d-coacd_convex_piece_0" file="core-bottle-bd28b6cd2fdb691b8d8eca78e5e16d9d-coacd_convex_piece_0.obj" scale="0.1 0.1 0.1" /><mesh name="core-bottle-bd28b6cd2fdb691b8d8eca78e5e16d9d-coacd_convex_piece_1" file="core-bottle-bd28b6cd2fdb691b8d8eca78e5e16d9d-coacd_convex_piece_1.obj" scale="0.1 0.1 0.1" /></asset></mujoco>

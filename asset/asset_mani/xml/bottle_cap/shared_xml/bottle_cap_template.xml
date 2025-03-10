@@ -1,0 +1,25 @@
+<mujoco model="bottle_cap_template">
+
+    <include file="./shared_xml/shared_assets.xml"/>
+
+    <worldbody>
+        <!--  add shadow hand  -->
+        <body name="shadow_hand" pos="-0.5 0 0.2" euler="3.1415 0 0">
+            <include file="./shared_xml/right_hand.xml"/>
+        </body>
+        <!-- add bottle cap-->
+        <body name="bottle_cap">
+            <geom pos="0 0 0.15" type="cylinder" size="0.02 0.01" condim="6" priority="1" friction="0.5 0.01 0.003" contype="2"/>
+<!--            <joint axis="0 0 1" damping="0.05" limited="false" name="OBJTz" pos="0 0 0" type="slide" />-->
+            <joint axis="0 0 1" damping="0.05" limited="false" name="OBJRz" pos="0 0 0" />
+        </body>
+        <!-- add bottle itself-->
+        <body name="bottle" >
+            <geom pos="0 0 0.05" type="cylinder" size="0.03 0.05" condim="6" priority="1" friction="0.5 0.01 0.003" conaffinity="2"/>
+        </body>
+
+    </worldbody>
+<!--    <actuator>-->
+<!--        <position name="a_cap" joint="OBJRz" ctrlrange="-7 7"/>-->
+<!--    </actuator>-->
+</mujoco>

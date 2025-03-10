@@ -1,0 +1,65 @@
+#env_params:
+task_name: 'bottle_cap'
+task_description:
+  'screw bottle cap for opening or closing'
+# xml and env_py path for register and make_env
+env_path:
+  'asset/asset_mani/xml/bottle_cap'
+env_py_path:
+  'asset.asset_mani.env_py.bottle_cap:BottleCapVTacEnv'
+
+# env param
+obs_dim:
+  prop: 50 #propriception
+  vis: 150528    #224*224*3
+  tac: 20
+#obs_dim: (50, 20)   #propriception + tactile
+img_w: 224
+img_h: 224
+#act_dim: 21
+clip_observations: 5.0
+clip_actions: 1.0
+
+ep_length: 1000
+frame_skip: 4
+seed: 411
+
+env_names:
+  - core-bottle-1ae823260851f7d9ea600d1a6d9f6e07
+  - core-bottle-1ffd7113492d375593202bf99dddc268
+  - core-bottle-2c5fd15998b6f8b996716aabcb2fff20
+  - core-bottle-2db802ef3de3d00618a36258eabc2b9c
+  - core-bottle-2fa757f584a3be31a7ceedb2540a32b0
+  - core-bottle-3ae3a9b74f96fef28fe15648f042f0d9
+  - core-bottle-3b0e35ff08f09a85f0d11ae402ef940e
+  - core-bottle-3b956918a41da89c325e6e8eb2c67fd8
+  - core-bottle-3d295fccf7d4e4dfd317c475f024f3b8
+  - core-bottle-3f41aaa42a237fa3c785f06f424b9d06
+eval_env_names:
+  - core-bottle-7446fa250adf49c5e7ef9fff09638f8e
+  - core-bottle-14588e373cdb9143ca972ee98a070b3d
+  - core-bottle-32074e5642bad0e12c16495e79df12c1
+  - core-bottle-91235f7d65aec958ca972daa503b3095
+  - core-bottle-97179a870ed9f12da452d8ffbbc0126
+
+env_num: 10
+video_path : 'runs/videos'
+
+#wandb:
+#  project: dummy_proj
+#  group: ${task_name}
+#  sweep_name_prefix: run
+#
+#train_params:
+#  total_timesteps: 50000000
+#  n_per_env: 1
+#  n_eval_per_env: 1
+#  eval_freq: 1000000
+#  vid_freq: null
+#  save_freq: 10000000
+#  restore_checkpoint_freq: 500000
+#  checkpoints:
+#    save_freq: 4000000
+#    save_path: './models/'
+#    name_prefix: 'rl_model'
+
