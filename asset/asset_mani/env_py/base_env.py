@@ -86,7 +86,7 @@ class BaseEnv(mujoco_env.MujocoEnv, utils.EzPickle):
 
             return rgb[::-1, :, :], dep[::-1, :]
 
-    def visualize(self):
+    def visualize_windows(self):
         self.render_mode = 'human'
         self.render()
 

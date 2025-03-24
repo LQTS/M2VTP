@@ -130,5 +130,6 @@ class VideoWrapper(VecEnvWrapper):
 
         for i in range(len(imgs)):
             imgs[i] = cv2.resize(imgs[i], size)
+            imgs[i] = cv2.cvtColor(imgs[i], cv2.COLOR_RGB2BGR)
             videowrite.write(imgs[i])
         print(f'video {name} has saved in {save_path}')

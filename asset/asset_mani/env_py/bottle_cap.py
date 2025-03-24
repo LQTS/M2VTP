@@ -33,7 +33,7 @@ class BottleCapBaseEnv(BaseEnv):
 
 
         if self.visualize:
-            # self.render()
+            # self.visualize_windows()
             visual_img = self.get_camera_data('ego_camera', self.img_h, self.img_w, 'rgb')
             self.info['imgs'] = visual_img
         self.info['goal_achieved'] = True if r1 > np.pi else False
